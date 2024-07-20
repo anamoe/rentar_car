@@ -18,7 +18,7 @@
    
     <style>
         .input-border-green .form-control {
-            border-color: green;
+            border-color: #179bbd;
         }
         .card {
             border: 1px solid #ddd;
@@ -31,7 +31,7 @@
 </head>
 
 <!-- <body class="background_login" style="background-image: url('{{ asset('public/FOTO/hijau.jpg') }}');"> -->
-<body class="background_login" style="background:green ;">
+<body class="background_login" style="background:#179bbd ;">
 
     <div class="header">
         <div class="container">
@@ -54,7 +54,8 @@
                         <!-- <img src="{{url('public/logo')}}/LOGO YAFO aja.png" class="logo" alt="" height="100px" width="60px"> -->
 
                         </center>
-                        <h1 class="fs-4 text-center fw-bold mb-4" style="color: green;">RENTAL</h1>
+                        <h1 class="fs-4 text-center fw-bold mb-4" style="color: #179bbd;">RAHMANA RENT - CAR
+                        </h1>
                         @if(session()->has('error'))
                         <div class="alert alert-danger" role="alert" id="notif">
 
@@ -80,7 +81,7 @@
                         <form action="{{url('login-post')}}" method="POST"  class="needs-validation" novalidate="" autocomplete="off">
                             @csrf
                             <div class="mb-3">
-                                <label class="mb-2  fw-bold " style="color: green;" for="email">Email</label>
+                                <label class="mb-2  fw-bold " style="color: #179bbd;" for="email">Email</label>
                                 <div class="input-group input-group-join mb-3 input-border-green">
                                     <input type="text" class="form-control" id="email" placeholder="Masukkan email" name="email" id="validationCustom01" required autofocus>
                                     <span class="input-group-text rounded-end">&nbsp<i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp</span>
@@ -94,7 +95,7 @@
 
                             <div class="mb-3">
                                 <div class="mb-2 w-100">
-                                    <label class=" fw-bold" style="color: green;" for="password">Password</label>
+                                    <label class=" fw-bold" style="color: #179bbd;" for="password">Password</label>
                                 </div>
                                 <div class="input-group input-group-join mb-3 input-border-green">
 
@@ -112,7 +113,7 @@
                             </div>
 
                             <div class="mt-4 d-grid gap-2 ">
-                                <button type="submit" class="btn btn-success" style="font-weight:bold;background-color: green;color:#FDBB26">LOG IN</button>
+                                <button type="submit" class="btn btn-success" style="font-weight:bold;background-color: #179bbd;color:white">LOG IN</button>
                             </div>
                         </form>
                       

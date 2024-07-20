@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('paket_rentals', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_paket');
+            $table->string('jenis_paket');
+            $table->string('destinasi');
+            $table->string('biaya_driver')->nullable();
+            $table->string('biaya_bbm')->nullable();
+            $table->string('harga');
+            $table->string('foto');
             $table->timestamps();
         });
     }

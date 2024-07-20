@@ -104,7 +104,7 @@
     </style>
 </head>
 
-<body style="background-color: #85e697;">
+<body style="background-color: #179bbd;">
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">

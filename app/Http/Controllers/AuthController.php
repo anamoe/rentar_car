@@ -13,21 +13,20 @@ class AuthController extends Controller
     public function login()
     {
         if (auth()->check()) {
-            // switch (Auth::user()->role) {
-            //     case 'admin':
-            //         return redirect('dashboard');
-            //         break;
-            //     case 'owner':
-            //         return redirect('/owner/dashboard');
-            //         break;
-            //     case 'customer':
-            //         return redirect('/customer/dashboard');
-            //         break;
-            //     case 'driver':
-            //         return redirect('/driver/dashboard');
-            //         break;
-            // }
+            switch (Auth::user()->role) {
+                case 'admin':
                     return redirect('dashboard');
+                    break;
+                case 'owner':
+                    return redirect('/owner/dashboard');
+                    break;
+                case 'customer':
+                    return redirect('/');
+                    break;
+                case 'driver':
+                    return redirect('/driver/dashboard');
+                    break;
+            }
 
         }
         return view('auth.login');
@@ -58,16 +57,16 @@ class AuthController extends Controller
             if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
                 switch (auth()->user()->role) {
                     case 'admin':
-                        return redirect('admin/dashboard');
+                        return redirect('admin/mobil');
                         break;
                     case 'owner':
-                        return redirect('owner/dashboard');
+                        return redirect('dashboard');
                         break;
                     case 'driver':
-                        return redirect('driver/dashboard');
+                        return redirect('dashboard');
                         break;
                     case 'customer':
-                        return redirect('customer/dashboard');
+                        return redirect('/');
                         break;
                 }
             } else {

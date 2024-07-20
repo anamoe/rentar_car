@@ -6,7 +6,7 @@
 
             </span>
 
-            <span class="" style="color: green;">RAHMANA RENT-CAR</span>
+            <span class="" style="color: #179bbd;">RAHMANA RENT-CAR</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -24,10 +24,10 @@
                 <div data-i18n="Analytics">Mobil</div>
             </a>
         </li>
-        <li class="menu-item {{request()->is('admin/paket*') ? 'active' : ''}}">
-            <a href="{{url('admin/paket')}}" class="menu-link">
+        <li class="menu-item {{request()->is('admin/paketrental*') ? 'active' : ''}}">
+            <a href="{{url('admin/paketrental')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-news"></i>
-                <div data-i18n="Analytics">Paket</div>
+                <div data-i18n="Analytics">Paket Rental</div>
             </a>
         </li>
 

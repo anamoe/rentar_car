@@ -916,8 +916,8 @@ body.collapse-sidebar footer {
   box-shadow: 0 0 7px #ea5455;
 }
 .timeline-xs .timeline-item.success::before {
-  background-color: #28c76f;
-  box-shadow: 0 0 7px #28c76f;
+  background-color: #179bbd;
+  box-shadow: 0 0 7px #179bbd;
 }
 .timeline-xs .timeline-item.warning::before {
   background-color: #ff9f43;
@@ -928,7 +928,7 @@ body.collapse-sidebar footer {
   box-shadow: 0 0 7px #00cfe8;
 }
 .timeline-xs .timeline-item.success {
-  border-left-color: #28c76f;
+  border-left-color: #179bbd;
 }
 .timeline-xs .timeline-item.danger {
   border-left-color: #ea5455;

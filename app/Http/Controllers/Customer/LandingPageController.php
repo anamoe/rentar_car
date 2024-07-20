@@ -16,4 +16,10 @@ class LandingPageController extends Controller
         $mobil =Mobil::orderBy('id','desc')->get();
         return view('welcome',compact('mobil'));
     }
+
+    public function detail_mobil($id){
+        $mobil =Mobil::where('id',$id)->first();
+        return view('detail-mobil',compact('mobil'));
+    }
+
 }
