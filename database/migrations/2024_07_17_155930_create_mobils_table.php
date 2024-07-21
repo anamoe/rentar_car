@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('model');
             $table->string('tahun');
             $table->string('foto');
+            $table->string('biaya_bbm');
+            $table->string('biaya_driver');
+            $table->string('biaya_total');
+            $table->enum('status_mobil', ['free', 'book'])->default('free');
             $table->timestamps();
         });
     }

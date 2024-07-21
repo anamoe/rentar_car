@@ -39,6 +39,18 @@
                     <input type="number" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{$data->tahun}}">
                 </div>
                 <div class="form-group">
+                    <label for="" class="form-label">Ongkos bbm</label>
+                    <input type="number" class="form-control @error('biaya_bbm') is-invalid @enderror" name="biaya_bbm" value="{{$data->biaya_bbm}}">
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Ongkos driver</label>
+                    <input type="number" class="form-control @error('biaya_driver') is-invalid @enderror" name="biaya_driver" value="{{$data-biaya_driver>}}">
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Biaya total(sewa)</label>
+                    <input type="number" class="form-control @error('biaya_total') is-invalid @enderror" name="biaya_total" value="{{$data->biaya_total}}">
+                </div>
+                <div class="form-group">
                     <label for="" class="form-label">Foto Mobil</label>
                     <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" accept="image/*">
                 </div>

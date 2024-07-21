@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AkunController;
 use App\Http\Controllers\Admin\MobilController;
 use App\Http\Controllers\Admin\PaketRentalController;
+use App\Http\Controllers\Admin\TransaksiPaketAdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Customer\LandingPageController;
 use App\Models\PaketRental;
@@ -32,7 +33,6 @@ Route::get('/about', function () {
 
 Route::get('/', [LandingPageController::class, 'landingpage']);
 Route::get('/landingpage-profil', [LandingPageController::class, 'index_profil']);
-Route::get('/detail-galeri', [LandingPageController::class, 'detailgaleri']);
 Route::get('/tentangkami', [LandingPageController::class, 'tentangkami']);
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/profil', [AuthController::class, 'profil']);
@@ -43,7 +43,6 @@ Route::post('login-post', [AuthController::class, 'postlogin']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [LandingPageController::class, 'dashboard']);
-    Route::get('/detail-mobil/{id}', [LandingPageController::class, 'detail_mobil']);
 });
 Route::middleware(['role:admin'])->group(function () {
 
@@ -56,6 +55,8 @@ Route::middleware(['role:admin'])->group(function () {
 
         Route::resource('akun', AkunController::class);
         Route::get('akun/{id}/delete', [AkunController::class, 'destroy']);
+        Route::get('transaksi-paket', [TransaksiPaketAdminController::class, 'index']);
+
     });
 });
 
@@ -72,5 +73,8 @@ Route::middleware(['role:driver'])->group(function () {
 Route::middleware(['role:customer'])->group(function () {
 
     Route::prefix('customer')->group(function () {
+    Route::get('/detail-mobil/{id}', [LandingPageController::class, 'detail_mobil']);
+
+        
     });
 });

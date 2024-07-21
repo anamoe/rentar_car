@@ -36,6 +36,9 @@ class MobilController extends Controller
             'merk'=>'required',
             'tahun'=>'required',
             'owner_id'=>'required',
+            'biaya_bbm'=>'required',
+            'biaya_driver'=>'required',
+            'biaya_total'=>'required',
         ]);
         
         // if($request->hasFile('foto')){
@@ -85,6 +88,9 @@ class MobilController extends Controller
             'merk'=>'required',
             'tahun'=>'required',
             'owner_id'=>'required',
+            'biaya_bbm'=>'required',
+            'biaya_driver'=>'required',
+            'biaya_total'=>'required',
         ]);
         if($request->hasFile('foto')){
             $tujuan_upload = public_path('mobil');

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('biaya_bbm')->nullable();
             $table->string('harga');
             $table->string('foto');
+            $table->string('status_mobil');
             $table->timestamps();
         });
     }

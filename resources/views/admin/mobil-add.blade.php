@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header bg-primary">
-        <h6 class="mb-0 text-white">Add  Mobil
+        <h6 class="mb-0 text-white">Add Mobil
             <a href="{{url('admin/mobil')}}" class="btn btn-sm float-end btn-light">Kembali</a>
         </h6>
     </div>
@@ -35,9 +35,21 @@
                     <input type="number" class="form-control @error('tahun') is-invalid @enderror" name="tahun">
                 </div>
                 <div class="form-group">
-                <label for="" class="form-label">Foto Mobil</label>
-                <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" accept="image/*">
-            </div>
+                    <label for="" class="form-label">Ongkos bbm</label>
+                    <input type="number" class="form-control @error('biaya_bbm') is-invalid @enderror" name="biaya_bbm">
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Ongkos driver</label>
+                    <input type="number" class="form-control @error('biaya_driver') is-invalid @enderror" name="biaya_driver">
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Biaya total(sewa)</label>
+                    <input type="number" class="form-control @error('biaya_total') is-invalid @enderror" name="biaya_total">
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Foto Mobil</label>
+                    <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" accept="image/*">
+                </div>
 
 
                 <button type="submit" class="btn btn-primary float-end mt-3">Tambah</button>

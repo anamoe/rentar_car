@@ -43,10 +43,10 @@
       
 
 
-        <li class="menu-item {{request()->is('admin/transaksipaket*') ? 'active' : ''}}">
-            <a href="{{url('admin/transaksipaket')}}" class="menu-link">
+        <li class="menu-item {{request()->is('admin/transaksi-paket*') ? 'active' : ''}}">
+            <a href="{{url('admin/transaksi-paket')}}" class="menu-link">
             <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Transaksi</div>
+                <div data-i18n="Analytics">Transaksi Paket Rental</div>
             </a>
         </li>
 

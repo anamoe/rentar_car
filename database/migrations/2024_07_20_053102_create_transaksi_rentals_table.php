@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('kode_transaksi');
             $table->string('status_bayar');
             $table->string('status_pengantaran');
+            $table->string('pembayaran_dp');
             $table->integer('customer_id')->nullable();
             $table->integer('driver_id')->nullable();
             $table->integer('mobil_id')->nullable();

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('photo_ktp')->nullable();
             $table->string('photo_sim')->nullable();
+            $table->string('status_driver')->nullable();
             $table->timestamps();
         });
 
