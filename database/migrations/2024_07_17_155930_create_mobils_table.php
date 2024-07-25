@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Mobil;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -24,6 +25,18 @@ return new class extends Migration
             $table->enum('status_mobil', ['free', 'book'])->default('free');
             $table->timestamps();
         });
+
+        Mobil::create([
+            'owner_id'=>2,
+            'merk'=>'Avanza',
+            'model'=>'ak47',
+            'tahun'=>'2020',
+            'foto'=>'mobil.jpg',
+            'biaya_bbm'=>'100000',
+            'biaya_driver'=>'50000',
+            'biaya_total'=>'60000',
+            'status_mobil'=>'free'
+        ]);
     }
 
     /**

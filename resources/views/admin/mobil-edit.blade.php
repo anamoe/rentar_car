@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Ongkos driver</label>
-                    <input type="number" class="form-control @error('biaya_driver') is-invalid @enderror" name="biaya_driver" value="{{$data-biaya_driver>}}">
+                    <input type="number" class="form-control @error('biaya_driver') is-invalid @enderror" name="biaya_driver" value="{{$data->biaya_driver}}">
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Biaya total(sewa)</label>

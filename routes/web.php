@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\PaketRentalController;
 use App\Http\Controllers\Admin\TransaksiPaketAdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Customer\LandingPageController;
+use App\Http\Controllers\Customer\TransaksiPaketController;
+use App\Http\Controllers\Driver\DriverController;
 use App\Models\PaketRental;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +41,8 @@ Route::get('/profil', [AuthController::class, 'profil']);
 Route::post('/profil/{id}', [AuthController::class, 'profile_update']);
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('login-post', [AuthController::class, 'postlogin']);
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('register-post', [AuthController::class, 'postregister']);
 
 
 Route::middleware(['auth'])->group(function () {
@@ -68,12 +72,18 @@ Route::middleware(['role:owner'])->group(function () {
 Route::middleware(['role:driver'])->group(function () {
 
     Route::prefix('driver')->group(function () {
+        Route::get('transaksi-paket', [DriverController::class, 'transaksi_rental']);
+
     });
 });
 Route::middleware(['role:customer'])->group(function () {
 
     Route::prefix('customer')->group(function () {
     Route::get('/detail-mobil/{id}', [LandingPageController::class, 'detail_mobil']);
+    Route::get('/detail-paket/{id}', [LandingPageController::class, 'detail_paket']);
+    Route::post('create-transaksi-paket', [TransaksiPaketController::class, 'store']);
+    Route::get('pemesanan/{id}', [TransaksiPaketController::class, 'pemesanan']);
+
 
         
     });

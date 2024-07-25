@@ -54,9 +54,9 @@
                 <div class="card shadow-lg">
                     <div class="card-body p-4">
 
-                        <h1 class="fs-4 text-center fw-bold mb-0" style="color: #179bbd;">RAHMANA RENT - CAR
+                        <h1 class="fs-4 text-center fw-bold mb-4" style="color: #179bbd;">RAHMANA RENT - CAR
                         </h1>
-                        <p class="fs-5 text-center fw-bold mb-4" style="color: #179bbd;">LOGIN
+                        <p class="fs-5 text-center fw-bold mb-4" style="color: #179bbd;">REGISTER
                         </p>
                         @if(session()->has('error'))
                         <div class="alert alert-danger" role="alert" id="notif">
@@ -97,16 +97,34 @@
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required>
                                 </div>
                             </div>
+                            <div class="mb-3">
+                                <div class="mb-2 w-100">
+                                    <label class=" fw-bold" style="color: #179bbd;" for="">Nama</label>
+                                </div>
+                                <div class="input-group input-group-join mb-3 input-border-green">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama" required>
+                                </div>
+                            </div>
 
+                            <div class="mb-3">
+                                <div class="mb-2 w-100">
+                                    <label class=" fw-bold" style="color: #179bbd;" for="">Address</label>
+                                </div>
+                                <div class="input-group input-group-join mb-3 input-border-green">
+                                    <textarea type="text" class="form-control" id="" name="addresss" placeholder="Masukkan Password" required>
+                                    </textarea>
+                                </div>
+                            </div>
                             <div class="mt-4 d-grid gap-2 ">
-                                <button type="submit" class="btn btn-success" style="font-weight:bold;background-color: #179bbd;color:white">LOG IN</button>
+                                <button type="submit" class="btn btn-success" 
+                                style="font-weight:bold;background-color: #179bbd;color:white">DAFTAR</button>
                             </div>
                         </form>
 
                         <div class="d-flex align-items-center">
                             <a class="text-success  ms-0"></a>
-                            <a href="{{url('register')}}">
-                                <p class="fs-8 mb-0">Belum punya akun? Klik disini</p>
+                            <a href="{{url('login')}}">
+                                <p class="fs-8 mb-0">Sudah ada akun? Klik disini login</p>
                             </a>
                         </div>
 

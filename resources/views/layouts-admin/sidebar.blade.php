@@ -18,9 +18,11 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
+
+        @if(auth()->user()->role=='admin')
         <li class="menu-item {{request()->is('admin/mobil*') ? 'active' : ''}}">
             <a href="{{url('admin/mobil')}}" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-car"></i>
+                <i class="menu-icon tf-icons bx bx-car"></i>
                 <div data-i18n="Analytics">Mobil</div>
             </a>
         </li>
@@ -39,17 +41,35 @@
                 <div data-i18n="Analytics">Akun</div>
             </a>
         </li>
-    
-      
-
 
         <li class="menu-item {{request()->is('admin/transaksi-paket*') ? 'active' : ''}}">
             <a href="{{url('admin/transaksi-paket')}}" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Transaksi Paket Rental</div>
             </a>
         </li>
+        @elseif(auth()->user()->role=='driver')
+        <li class="menu-item {{request()->is('admin/transaksi-paket*') ? 'active' : ''}}">
+            <a href="{{url('admin/transaksi-paket')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Laporan Kerusakan</div>
+            </a>
+        </li>
+        <li class="menu-item {{request()->is('driver/transaksi-paket*') ? 'active' : ''}}">
+            <a href="{{url('driver/transaksi-paket')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Orderan</div>
+            </a>
+        </li>
+        @elseif(auth()->user()->role=='owner')
+        <li class="menu-item {{request()->is('admin/transaksi-paket*') ? 'active' : ''}}">
+            <a href="{{url('admin/transaksi-paket')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Riwayat Laporan Kerusakan</div>
 
+            </a>
+        </li>
+        @endif
 
 
     </ul>

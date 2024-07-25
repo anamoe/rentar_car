@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('address');
+            $table->string('umur');
             $table->string('foto')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
@@ -24,7 +25,8 @@ return new class extends Migration
         Customer::create([
             'user_id'=>4,
             'name'=>'Customerku',
-            'address'=>'banyuwangi'
+            'address'=>'banyuwangi',
+            'umur'=>'20'
         ]);
     }
 

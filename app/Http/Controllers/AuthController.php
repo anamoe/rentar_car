@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,27 @@ class AuthController extends Controller
 
         }
         return view('auth.login');
+    }
+    public function register()
+    {
+        if (auth()->check()) {
+            switch (Auth::user()->role) {
+                case 'admin':
+                    return redirect('dashboard');
+                    break;
+                case 'owner':
+                    return redirect('/owner/dashboard');
+                    break;
+                case 'customer':
+                    return redirect('/');
+                    break;
+                case 'driver':
+                    return redirect('/driver/dashboard');
+                    break;
+            }
+
+        }
+        return view('auth.register');
     }
     public function postlogin(Request $request)
     {
@@ -76,6 +98,47 @@ class AuthController extends Controller
         } else {
             return redirect()->back()
                 ->with('error', 'Email tidak ada atau belum terdaftar');
+        }
+    }
+
+    public function postregister(Request $request)
+    {
+
+        $input = $request->all();
+        $rules = [
+
+            'email'     => 'required',
+            'password'  => 'required',
+
+        ];
+        // error message untuk validasi
+        $message = [
+            'required' => ':attribute tidak boleh kosong!'
+        ];
+        // instansiasi validator
+        $validator = Validator::make($request->all(), $rules, $message);
+
+        // proses validasi
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        $user = User::where('role','customer')->where('email',$request->email)->first();
+
+        if (!$user) {
+            $usercreate =User::create([
+                'role'=>'customer',
+                
+
+            ]);
+
+            Customer::create([
+                'user_id'=>$usercreate->id,
+            ]);
+           
+        } else {
+            return redirect()->back()
+                ->with('error', 'Email sudah terdaftar');
         }
     }
 

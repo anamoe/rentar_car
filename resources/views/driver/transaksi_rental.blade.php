@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header bg-primary">
-        <h6 class="mb-0 text-white">Transaksi Paket Rental
+        <h6 class="mb-0 text-white">Orderan Paket Rental Driver
             <a href="{{url('admin/transaksipaketrental/create')}}" class="btn btn-sm float-end btn-light">Add</a>
         </h6>
     </div>

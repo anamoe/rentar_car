@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html public/lang="en">
 
 <head>
   <title>RAHMANA RENT-CAR</title>
@@ -8,38 +8,44 @@
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="{{asset('landingpage/css/open-iconic-bootstrap.min.css')}}">
-  <link rel="stylesheet" href="{{asset('landingpage/css/animate.css')}}">
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/open-iconic-bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/animate.css')}}">
 
-  <link rel="stylesheet" href="{{asset('landingpage/css/owl.carousel.min.css')}}">
-  <link rel="stylesheet" href="{{asset('landingpage/css/owl.theme.default.min.css')}}">
-  <link rel="stylesheet" href="{{asset('landingpage/css/magnific-popup.css')}}">
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/owl.theme.default.min.css')}}">
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/magnific-popup.css')}}">
 
-  <link rel="stylesheet" href="{{asset('landingpage/css/aos.css')}}">
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/aos.css')}}">
 
-  <link rel="stylesheet" href="{{asset('landingpage/css/ionicons.min.css')}}">
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/ionicons.min.css')}}">
 
-  <link rel="stylesheet" href="{{asset('landingpage/css/bootstrap-datepicker.css')}}">
-  <link rel="stylesheet" href="{{asset('landingpage/css/jquery.timepicker.css')}}">
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/bootstrap-datepicker.css')}}">
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/jquery.timepicker.css')}}">
+  <link rel="stylesheet" href="{{asset('public/arfa/toastr/toastr.min.css') }}">
 
 
-  <link rel="stylesheet" href="{{asset('landingpage/css/flaticon.css')}}">
-  <link rel="stylesheet" href="{{asset('landingpage/css/icomoon.css')}}">
-  <link rel="stylesheet" href="{{asset('landingpage/css/style.css')}}">
-
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/flaticon.css')}}">
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/icomoon.css')}}">
+  <link rel="stylesheet" href="{{asset('public/landingpage/css/style.css')}}">
+  <style>
+    .nav-item {
+      color: blue;
+    }
+  </style>
+@stack('css')
 </head>
 
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="{{url('')}}"><span>RAHMANA RENT - CAR</span></a>
+      <a class="navbar-brand" href="{{url('')}}"><span  style="color: #179bbd;">RAHMANA RENT - CAR</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
 
       <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto" style="">
           <li class="nav-item active"><a href="{{url('')}}" class="nav-link">Home</a></li>
           <li class="nav-item active"><a href="{{url('')}}" class="nav-link">Order</a></li>
           <li class="nav-item active"><a href="{{url('about')}}" class="nav-link">About</a></li>
@@ -48,11 +54,12 @@
           @auth
           <li class="nav-item">
             <div class="btn-group mb-2 mt-2">
-              <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                 {{auth()->user()->name}}
               </button>
               <div class="dropdown-menu" style="width:100px">
                 <a class="dropdown-item" href="{{url('profil')}}">Profil</a>
+                <a class="dropdown-item" href="{{url('customer/transaksi-rental')}}">Transaksi Rental</a>
                 <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
               </div>
               @else
@@ -131,23 +138,35 @@
   <!-- loader -->
 
 
-  <script src="{{asset('landingpage/js/jquery.min.js')}}"></script>
-  <script src="{{asset('landingpage/js/jquery-migrate-3.0.1.min.js')}}"></script>
-  <script src="{{asset('landingpage/js/popper.min.js')}}"></script>
-  <script src="{{asset('landingpage/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset('landingpage/js/jquery.easing.1.3.js')}}"></script>
-  <script src="{{asset('landingpage/js/jquery.waypoints.min.js')}}"></script>
-  <script src="{{asset('landingpage/js/jquery.stellar.min.js')}}"></script>
-  <script src="{{asset('landingpage/js/owl.carousel.min.js')}}"></script>
-  <script src="{{asset('landingpage/js/jquery.magnific-popup.min.js')}}"></script>
-  <script src="{{asset('landingpage/js/aos.js')}}"></script>
-  <script src="{{asset('landingpage/js/jquery.animateNumber.min.js')}}"></script>
-  <script src="{{asset('landingpage/js/bootstrap-datepicker.js')}}"></script>
-  <script src="{{asset('landingpage/js/jquery.timepicker.min.js')}}"></script>
-  <script src="{{asset('landingpage/js/scrollax.min.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/jquery.min.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/jquery-migrate-3.0.1.min.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/popper.min.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/jquery.easing.1.3.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/jquery.waypoints.min.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/jquery.stellar.min.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/owl.carousel.min.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/jquery.magnific-popup.min.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/aos.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/jquery.animateNumber.min.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/bootstrap-datepicker.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/jquery.timepicker.min.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/scrollax.min.js')}}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="{{asset('landingpage/js/google-map.js')}}"></script>
-  <script src="{{asset('landingpage/js/main.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/google-map.js')}}"></script>
+  <script src="{{asset('public/landingpage/js/main.js')}}"></script>
+  <script src="{{url('public/arfa/toastr')}}/toastr.min.js"></script>
+    <script>
+    toastr.options.timeOut = 1500;
+    toastr.options.showMethod = 'slideDown';
+    toastr.options.hideMethod = 'slideUp';
+    toastr.options.closeMethod = 'slideUp';
+    @if(session()->has('success'))
+        toastr.success('{{session()->get("success")}}')
+    @elseif(session()->has('error'))
+        toastr.error('{{session()->get("error")}}')
+    @endif
+</script>
   @stack('js')
 
 </body>

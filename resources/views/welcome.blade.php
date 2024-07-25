@@ -9,7 +9,7 @@
 	<div class="carousel-inner">
 		@foreach($mobil as $index => $v)
 		<div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-			<div class="hero-wrap ftco-degree-bg" style="background-image: url('mobil/{{ $v->foto }}');" data-stellar-background-ratio="0.5">
+			<div class="hero-wrap ftco-degree-bg" style="background-image: url('public/mobil/{{ $v->foto }}');" data-stellar-background-ratio="0.5">
 				<div class="overlay"></div>
 				<div class="container">
 					<div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
@@ -53,7 +53,7 @@
 					@foreach($mobil as $v)
 					<div class="item">
 						<div class="car-wrap rounded ftco-animate">
-							<div class="img rounded d-flex align-items-end" style="background-image: url('mobil/{{$v->foto}}');">
+							<div class="img rounded d-flex align-items-end" style="background-image: url('public/mobil/{{$v->foto}}');">
 							</div>
 							<div class="text">
 								<center>
@@ -84,7 +84,7 @@
 					@foreach($paket as $v)
 					<div class="item">
 						<div class="car-wrap rounded ftco-animate">
-							<div class="img rounded d-flex align-items-end" style="background-image: url('PaketRental/{{$v->foto}}');">
+							<div class="img rounded d-flex align-items-end" style="background-image: url('public/PaketRental/{{$v->foto}}');">
 
 							</div>
 							<div class="text">
@@ -94,7 +94,7 @@
 									<p class="price ml-auto">Rp. {{$v->harga}},00</p>
 								</div>
 								<p class="d-flex mb-0 d-block">
-									<a href="{{url('customer/detail-mobil',$v->id)}}" class="btn btn-primary py-2 mr-1">Booking</a>
+									<a href="{{url('customer/detail-paket',$v->id)}}" class="btn btn-primary py-2 mr-1">Booking</a>
 								</p>
 
 							</div>
