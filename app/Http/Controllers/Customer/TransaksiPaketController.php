@@ -193,11 +193,22 @@ class TransaksiPaketController extends Controller
         if ($notification->transaction_status == "settlement") {
             $p = TransaksiRental::where('kode_pembayaran', $notification->order_id)->first();
 
+            if ($notification->payment_type == "bank_transfer") {
+                // Ambil bank dari va_numbers
+                $bank = isset($notification->va_numbers[0]->bank) ? $notification->va_numbers[0]->bank : null;
+            } elseif ($notification->payment_type == "qris") {
+                // Cek acquirer (dalam kasus ini 'issuer') dari data QRIS
+                $bank = isset($notification->acquirer) ? $notification->acquirer : null;
+            } else {
+                // Default jika jenis pembayaran tidak dikenali
+                $bank = null;
+            }
+
             $p->update([
                 'status_bayar' => 'terbayar',
                 'tanggal_pembayaran' => date('Y-m-d'),
                 'kode_transaksi' => $notification->transaction_id,
-                
+                'metode_pembayaran' => $bank
                 // 'metode_pembayaran' => $notification->va_numbers[0]->bank
 
             ]);
