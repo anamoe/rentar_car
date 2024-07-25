@@ -37,6 +37,40 @@ return new class extends Migration
             'biaya_total'=>'60000',
             'status_mobil'=>'free'
         ]);
+
+        Mobil::create([
+            'owner_id'=>2,
+            'merk'=>'Brio',
+            'model'=>'Jazz',
+            'tahun'=>'1998',
+            'foto'=>'mobil2.jpg',
+            'biaya_bbm'=>'100000',
+            'biaya_driver'=>'50000',
+            'biaya_total'=>'60000',
+            'status_mobil'=>'free'
+        ]);
+        Mobil::create([
+            'owner_id'=>2,
+            'merk'=>'Mclaren',
+            'model'=>'T121',
+            'tahun'=>'2024',
+            'foto'=>'mobil3.jpg',
+            'biaya_bbm'=>'100000',
+            'biaya_driver'=>'50000',
+            'biaya_total'=>'200000',
+            'status_mobil'=>'free'
+        ]);
+        Mobil::create([
+            'owner_id'=>2,
+            'merk'=>'aLPHARD',
+            'model'=>'wow',
+            'tahun'=>'2023',
+            'foto'=>'mobil4.jpg',
+            'biaya_bbm'=>'200000',
+            'biaya_driver'=>'100000',
+            'biaya_total'=>'300000',
+            'status_mobil'=>'free'
+        ]);
     }
 
     /**
