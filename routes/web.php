@@ -60,6 +60,8 @@ Route::middleware(['role:admin'])->group(function () {
         Route::resource('akun', AkunController::class);
         Route::get('akun/{id}/delete', [AkunController::class, 'destroy']);
         Route::get('transaksi-paket', [TransaksiPaketAdminController::class, 'index']);
+        Route::put('cari-driver/{id_transaksi}', [TransaksiPaketAdminController::class, 'pilih_driver']);
+        
 
     });
 });
@@ -73,6 +75,9 @@ Route::middleware(['role:driver'])->group(function () {
 
     Route::prefix('driver')->group(function () {
         Route::get('transaksi-paket', [DriverController::class, 'transaksi_rental']);
+        Route::put('status-pengantaran/{id_transaksi}', [DriverController::class, 'selesai']);
+        Route::get('laporan-kerusakan/{id}', [DriverController::class, 'create_laporan']);
+
 
     });
 });
@@ -83,6 +88,7 @@ Route::middleware(['role:customer'])->group(function () {
     Route::get('/detail-paket/{id}', [LandingPageController::class, 'detail_paket']);
     Route::post('create-transaksi-paket', [TransaksiPaketController::class, 'store']);
     Route::get('pemesanan/{id}', [TransaksiPaketController::class, 'pemesanan']);
+    Route::get('transaksi-paket', [TransaksiPaketController::class, 'index']);
 
 
         

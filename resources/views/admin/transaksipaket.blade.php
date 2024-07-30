@@ -61,7 +61,7 @@
                                         @method('PUT')
                                         <div class="form-group">
                                             <label for="" class="form-label">Nama Driver</label>
-                                            <select name="owner_id" class="form-control">
+                                            <select name="driver_id" class="form-control">
                                                 @foreach ($driver as $user)
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                                                 @endforeach

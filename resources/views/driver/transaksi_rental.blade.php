@@ -41,10 +41,8 @@
                         <td>{{$item->pembayaran_dp}}</td>
                         <td>
 
-                            <!-- <a href="{{url('admin/paketrental/'.$item->id.'/caridriver')}}" class="btn btn-sm btn-primary">Cari Driver</a> -->
-                            <a href="{{url('admin/paketrental/'.$item->id.'/delete')}}" class="btn btn-sm btn-danger mb-1">Delete</a>
                             <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{$item->id}}">
-                                Cari Driver
+                                Selesaikan
                             </button>
                         </td>
                     </tr>
@@ -52,25 +50,22 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Cari Driver</h5>
+                                    <h5 class="modal-title" id="staticBackdropLabel">Konfirmasi Pengantaran</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{url('admin/cari-driver',$item->id)}}" method="post" enctype="multipart/form-data">
+                                    <form action="{{url('driver/status-pengantaran',$item->id)}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="form-group">
-                                            <label for="" class="form-label">Nama Driver</label>
-                                            <select name="owner_id" class="form-control">
-                                                @foreach ($driver as $user)
-                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                                @endforeach
+                                            <label for="" class="form-label">Status Pengantaran</label>
+                                            <select name="status" class="form-control">
+                                                <option value="selesai">Selesai</option>
                                             </select>
 
                                         </div>
                                         <div class="modal-footer">
-                                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                                            <button type="submit" class="btn btn-primary">Kirim Driver</button>
+                                            <button type="submit" class="btn btn-primary">Kirim</button>
                                         </div>
                                     </form>
                                 </div>

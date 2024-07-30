@@ -58,8 +58,8 @@
                 {{auth()->user()->name}}
               </button>
               <div class="dropdown-menu" style="width:100px">
-                <a class="dropdown-item" href="{{url('profil')}}">Profil</a>
-                <a class="dropdown-item" href="{{url('customer/transaksi-rental')}}">Transaksi Rental</a>
+                <!-- <a class="dropdown-item" href="{{url('profil')}}">Profil</a> -->
+                <a class="dropdown-item" href="{{url('customer/transaksi-paket')}}">Transaksi Rental</a>
                 <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
               </div>
               @else

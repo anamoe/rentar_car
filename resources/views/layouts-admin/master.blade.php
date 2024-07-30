@@ -41,7 +41,7 @@
 
     <!-- Helpers -->
     <script src="{{url('public/sneat')}}/assets/vendor/js/helpers.js"></script>
-    <link rel="stylesheet" href="{{asset('arfa/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{asset('public/arfa/toastr/toastr.min.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->

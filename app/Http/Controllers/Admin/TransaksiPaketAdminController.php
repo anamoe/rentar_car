@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\TransaksiRental;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class TransaksiPaketAdminController extends Controller
 {
@@ -24,12 +25,13 @@ class TransaksiPaketAdminController extends Controller
         return view('admin.transaksipaket', compact('data', 'driver'));
     }
 
-    public function pilih_driver(Request $request){
+    public function pilih_driver(Request $request,$id_transaksi){
 
-        $cekemail= User::where('id',$request->id_driver)->first();
-        $token = $this->getRandomString();
-     
+        $cekemail= User::where('id',$request->driver_id)->where('role','driver')->first();
         // return $cekemail;
+        TransaksiRental::where('id',$id_transaksi)->update([
+            'driver_id'=>$request->driver_id
+        ]);
 
         if($cekemail){
             $email= $cekemail->email;
@@ -40,7 +42,7 @@ class TransaksiPaketAdminController extends Controller
             $name = $cekemail->name;
             $data = [
                 'name' => $name,
-                'body' => "Kepada Driver : $name. ",
+                'body' => "Kepada Driver : $name. Ada Orderan. Silahkan cek diwebsite ",
                 'link' => "$link"
             ];
      
@@ -50,7 +52,7 @@ class TransaksiPaketAdminController extends Controller
                 $message->to($email, $name)->subject('Pemberitahuan RAHMANA RENTAL CAR');
             });
             return redirect()->back()
-            ->with('message', 'Berhasil mengirim pesan ke driver :'.$cekemail->name);
+            ->with('success', 'Berhasil mengirim pesan ke driver :'.$cekemail->name.'/'.$cekemail->email);
 
         }else{
 
