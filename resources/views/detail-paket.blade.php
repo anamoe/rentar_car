@@ -13,7 +13,7 @@
 							{{$paket->destinasi}}</span>
 						<span class="subheading" style="font-size: 20px;;color:black">
 							{{$paket->jenis_paket}}</span>
-						<h2>Harga Paket :Rp. {{$paket->biaya_total}},00</h2>
+						<h2>Harga Paket :Rp. {{$paket->harga}},00</h2>
 					</div>
 				</div>
 			</div>
@@ -122,8 +122,8 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="">Pembayaran 50%</label>
-						<input type="text" disabled class="form-control" value="Rp.{{$paket->biaya_total/2}},00">
-						<input type="hidden" class="form-control" name="pembayaran_dp" placeholder="" value="{{$paket->biaya_total/2}}">
+						<input type="text" disabled class="form-control" value="Rp.{{$paket->harga/2}},00">
+						<input type="hidden" class="form-control" name="pembayaran_dp" placeholder="" value="{{$paket->harga/2}}">
 					</div>
 				</div>
 			</div>

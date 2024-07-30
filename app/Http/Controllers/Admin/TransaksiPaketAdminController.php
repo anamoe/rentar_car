@@ -23,4 +23,41 @@ class TransaksiPaketAdminController extends Controller
 
         return view('admin.transaksipaket', compact('data', 'driver'));
     }
+
+    public function pilih_driver(Request $request){
+
+        $cekemail= User::where('id',$request->id_driver)->first();
+        $token = $this->getRandomString();
+     
+        // return $cekemail;
+
+        if($cekemail){
+            $email= $cekemail->email;
+
+          
+
+            $link = getenv('APP_URL') . "driver/transaksi-paket";
+            $name = $cekemail->name;
+            $data = [
+                'name' => $name,
+                'body' => "Kepada Driver : $name. ",
+                'link' => "$link"
+            ];
+     
+            Mail::send('email.notif-driver', $data, function ($message) use ($name, $email) {
+     
+       
+                $message->to($email, $name)->subject('Pemberitahuan RAHMANA RENTAL CAR');
+            });
+            return redirect()->back()
+            ->with('message', 'Berhasil mengirim pesan ke driver :'.$cekemail->name);
+
+        }else{
+
+            return redirect()->back()
+            ->with('error', 'gagal');
+
+        }
+        
+    }
 }
