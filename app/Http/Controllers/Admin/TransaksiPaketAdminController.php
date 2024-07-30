@@ -28,6 +28,9 @@ class TransaksiPaketAdminController extends Controller
     public function pilih_driver(Request $request,$id_transaksi){
 
         $cekemail= User::where('id',$request->driver_id)->where('role','driver')->first();
+        $cekemail->update([
+            'status_driver'=>'book'
+        ]);
         // return $cekemail;
         TransaksiRental::where('id',$id_transaksi)->update([
             'driver_id'=>$request->driver_id

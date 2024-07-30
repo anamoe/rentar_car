@@ -16,6 +16,7 @@
                 <div class="form-group">
                     <label for="" class="form-label">Kondisi</label>
                     <input type="text" class="form-control @error('kondisi') is-invalid @enderror" name="kondisi">
+                    <input type="text" value="{{$id}}" name="id_mobil">
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Keterangan</label>

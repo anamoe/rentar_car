@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Driver;
 use App\Http\Controllers\Controller;
 use App\Models\Mobil;
 use App\Models\TransaksiRental;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DriverController extends Controller
@@ -29,6 +30,14 @@ class DriverController extends Controller
         $id = TransaksiRental::where('id', $id_transaksi)->first();
         $id->update([
             'status_pengantaran' => 'selesai'
+        ]);
+
+        User::where('id',$id->driver_id)->update([
+            'status_driver'=>'free'
+        ]);
+
+        Mobil::where('id',$id->mobil_id)->update([
+            'status_mobil'=>'free'
         ]);
 
         return redirect('driver/laporan-kerusakan/' . $id->mobil_id)

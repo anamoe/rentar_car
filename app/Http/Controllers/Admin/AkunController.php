@@ -56,6 +56,8 @@ class AkunController extends Controller
             $file->move($tujuan_upload, $namaFile);
             $data['foto_ktp'] = $namaFile;
         }
+        $data['status_driver'] = 'free';
+
     }
    
 
