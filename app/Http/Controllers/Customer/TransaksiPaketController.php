@@ -99,7 +99,7 @@ class TransaksiPaketController extends Controller
 
         $id_transaksi =  TransaksiRental::create([
             'customer_id' => auth()->user()->id,
-            'paket_id'=>$request->paket_id,
+            // 'paket_id'=>$request->paket_id,
             'mobil_id' => $request->mobil_id,
             'pembayaran_dp' => $request->pembayaran_dp,
             'status_bayar' => 'pending',
@@ -186,13 +186,12 @@ class TransaksiPaketController extends Controller
         $notification = json_decode($payload);
         // $json = json_decode($request->get('json')); //nama json dipanggil dari token yg awto kepanggil dari API
 
-        return $notification;
+        // return $notification;
 
         //melakukan pengecekan status transaksi
         // return $notification->va_numbers[0]->bank;
         if ($notification->transaction_status == "settlement") {
             $p = TransaksiRental::where('kode_pembayaran', $notification->order_id)->first();
-            // return $p;
 
             if ($notification->payment_type == "bank_transfer") {
                 // Ambil bank dari va_numbers
@@ -205,14 +204,14 @@ class TransaksiPaketController extends Controller
                 $bank = null;
             }
 
-            // $p->update([
-            //     'status_bayar' => 'terbayar',
-            //     'tanggal_pembayaran' => date('Y-m-d'),
-            //     'kode_transaksi' => $notification->transaction_id,
-            //     'metode_pembayaran' => $bank
-            //     // 'metode_pembayaran' => $notification->va_numbers[0]->bank
+            $p->update([
+                'status_bayar' => 'terbayar',
+                'tanggal_pembayaran' => date('Y-m-d'),
+                'kode_transaksi' => $notification->transaction_id,
+                'metode_pembayaran' => $bank
+                // 'metode_pembayaran' => $notification->va_numbers[0]->bank
 
-            // ]);
+            ]);
         }
     }
 }
