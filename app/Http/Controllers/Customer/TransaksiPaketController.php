@@ -192,6 +192,7 @@ class TransaksiPaketController extends Controller
         // return $notification->va_numbers[0]->bank;
         if ($notification->transaction_status == "settlement") {
             $p = TransaksiRental::where('kode_pembayaran', $notification->order_id)->first();
+            return $p;
 
             if ($notification->payment_type == "bank_transfer") {
                 // Ambil bank dari va_numbers

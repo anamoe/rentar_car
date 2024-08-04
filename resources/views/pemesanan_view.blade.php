@@ -16,8 +16,8 @@
 <div class="row p-5 mt-5">
 <div class="container-xxl flex-grow-1 container-p-y">
 
-    <div class="row mb-7">
-        <div class="col-md-5">
+    <div class="row mb-5">
+        <div class="col-md-6">
             <h4 class="title fw-bold">Pilih Metode Pembayaran</h4>
             <div class="w-100 h-100">
                 <iframe src="{{$pemesanan->payment_url}}" frameborder="0" id="snap-midtrans"></iframe>
@@ -25,7 +25,7 @@
 
         </div>
 
-        <div class="col-md-5">
+        <div class="col-md-6">
 
             <p>Kode Booking : <span class="fw-bold float-end">{{$pemesanan->kode_pembayaran}}</span></p>
             <p>Customer : <span class="fw-bold float-end">{{$pemesanan->nama_customer}}</span></p>
