@@ -16,7 +16,7 @@
 <div class="row p-5 mt-5">
 <div class="container-xxl flex-grow-1 container-p-y">
 
-    <div class="row mb-5">
+    <div class="row mb-7">
         <div class="col-md-5">
             <h4 class="title fw-bold">Pilih Metode Pembayaran</h4>
             <div class="w-100 h-100">
@@ -25,16 +25,16 @@
 
         </div>
 
-        <div class="col-md-7">
+        <div class="col-md-5">
 
             <p>Kode Booking : <span class="fw-bold float-end">{{$pemesanan->kode_pembayaran}}</span></p>
             <p>Customer : <span class="fw-bold float-end">{{$pemesanan->nama_customer}}</span></p>
             <p>Nama Paket : <span class="fw-bold float-end">{{$pemesanan->nama_paket}}</span></p>
             <p>Harga : <span class="fw-bold float-end">{{$pemesanan->pembayaran_dp}}</span></p>
             <p>Status : <span class="fw-bold float-end badge {{$pemesanan->status_bayar == 'pending' ? 'bg-danger' : 'bg-success'}}">{{$pemesanan->status_bayar}}</span></p>
-            <p>
+            <!-- <p>
                 <a href="{{url('customer/pemesanan/'.$pemesanan->id)}}" class="btn btn-sm btn-primary">Refresh</a>
-            </p>
+            </p> -->
 
             <div class="card mt-3 bg-primary">
                 <div class="card-body">
