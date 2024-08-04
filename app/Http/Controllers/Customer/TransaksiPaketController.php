@@ -32,9 +32,9 @@ class TransaksiPaketController extends Controller
         ->leftjoin('users as driver', 'transaksi_rentals.driver_id', 'driver.id')
         ->join('users as customer', 'transaksi_rentals.customer_id', 'customer.id')
         ->leftjoin('paket_rentals', 'transaksi_rentals.paket_id', 'paket_rentals.id')
-        ->select('driver.name as nama_driver', 'customer.name as nama_customer', 'paket_rentals.*', 'transaksi_rentals.*')
+        ->select('driver.name as nama_driver', 'customer.name as nama_customer', 'paket_rentals.*','mobils.*', 'transaksi_rentals.*')
         ->where('transaksi_rentals.customer_id',auth()->user()->id)->get();
-        return $data;
+        // return $data;
         return view('transaksi-user',compact('data'));
     }
 
