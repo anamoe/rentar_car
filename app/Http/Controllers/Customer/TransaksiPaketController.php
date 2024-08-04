@@ -205,14 +205,14 @@ class TransaksiPaketController extends Controller
                 $bank = null;
             }
 
-            $p->update([
-                'status_bayar' => 'terbayar',
-                'tanggal_pembayaran' => date('Y-m-d'),
-                'kode_transaksi' => $notification->transaction_id,
-                'metode_pembayaran' => $bank
-                // 'metode_pembayaran' => $notification->va_numbers[0]->bank
+            // $p->update([
+            //     'status_bayar' => 'terbayar',
+            //     'tanggal_pembayaran' => date('Y-m-d'),
+            //     'kode_transaksi' => $notification->transaction_id,
+            //     'metode_pembayaran' => $bank
+            //     // 'metode_pembayaran' => $notification->va_numbers[0]->bank
 
-            ]);
+            // ]);
         }
     }
 }
