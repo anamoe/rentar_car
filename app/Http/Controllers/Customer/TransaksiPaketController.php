@@ -186,13 +186,13 @@ class TransaksiPaketController extends Controller
         $notification = json_decode($payload);
         // $json = json_decode($request->get('json')); //nama json dipanggil dari token yg awto kepanggil dari API
 
-        // return $notification;
+        return $notification;
 
         //melakukan pengecekan status transaksi
         // return $notification->va_numbers[0]->bank;
         if ($notification->transaction_status == "settlement") {
             $p = TransaksiRental::where('kode_pembayaran', $notification->order_id)->first();
-            return $p;
+            // return $p;
 
             if ($notification->payment_type == "bank_transfer") {
                 // Ambil bank dari va_numbers
