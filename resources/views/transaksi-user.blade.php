@@ -21,7 +21,7 @@
                         <th>Driver</th>
                         <th>Status Bayar</th>
                         <th>Status Pengantaran</th>
-                        <th>Harga DP 50%</th>
+                        <th>Harga</th>
                       
                     </tr>
                 </thead>
