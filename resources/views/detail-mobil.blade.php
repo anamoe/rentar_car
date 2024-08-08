@@ -111,7 +111,7 @@
 					<div class="form-group">
 						<label for="">Pembayaran</label>
 						<input type="text" disabled class="form-control" value="Rp.{{$mobil->biaya_total}},00">
-						<input type="hidden" class="form-control" name="pembayaran_dp" placeholder="" value="{{$mobil->biaya_total}}">
+						<input type="hidden" class="form-control" name="pembayaran" placeholder="" value="{{$mobil->biaya_total}}">
 					</div>
 				</div>
 			</div>

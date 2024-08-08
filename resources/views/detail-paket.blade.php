@@ -123,7 +123,7 @@
 					<div class="form-group">
 						<label for="">Pembayaran</label>
 						<input type="text" disabled class="form-control" value="Rp.{{$paket->harga}},00">
-						<input type="hidden" class="form-control" name="pembayaran_dp" placeholder="" value="{{$paket->harga}}">
+						<input type="hidden" class="form-control" name="pembayaran" placeholder="" value="{{$paket->harga}}">
 					</div>
 				</div>
 			</div>

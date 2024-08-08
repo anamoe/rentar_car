@@ -74,7 +74,7 @@ class TransaksiPaketController extends Controller
             ],
             'transaction_details' => [
                 'order_id' => $orderid,
-                'gross_amount' => $request->pembayaran_dp,
+                'gross_amount' => $request->pembayaran,
             ],
             'customer_details' => $customerDetails,
             'expiry' => [
@@ -102,7 +102,7 @@ class TransaksiPaketController extends Controller
             'customer_id' => auth()->user()->id,
             // 'paket_id'=>$request->paket_id,
             'mobil_id' => $request->mobil_id,
-            'pembayaran_dp' => $request->pembayaran_dp,
+            'pembayaran' => $request->pembayaran,
             'status_bayar' => 'pending',
             'status_pengantaran' => 'belum',
             'tanggal_penjemputan' => $request->tanggal_penjemputan,
