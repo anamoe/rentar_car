@@ -177,6 +177,25 @@ class TransaksiPaketController extends Controller
         }
     }
 
+    
+    public function cancel_pemesanan($id)
+    {
+        $p = TransaksiRental::where('id',$id)->first();
+    
+        $p->update([
+            'status_bayar' => 'cancel',
+        ]);
+
+        Mobil::where('id', $p->id_mobil)->update([
+            'status_mobil' => 'free'
+        ]);
+
+        session()->flash('success', 'Sukses membatalkan pesanan');
+        return redirect('customer/transaksi-paket');
+
+      
+    }
+
     public function notification_payment(Request $request)
     {
         $this->initPaymentGateway();

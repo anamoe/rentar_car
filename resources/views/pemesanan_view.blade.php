@@ -31,10 +31,10 @@
             <p>Customer : <span class="fw-bold float-end">{{$pemesanan->nama_customer}}</span></p>
             <p>Nama Paket : <span class="fw-bold float-end">{{$pemesanan->nama_paket}}</span></p>
             <p>Harga : <span class="fw-bold float-end">{{$pemesanan->pembayaran_dp}}</span></p>
-            <p>Status : <span class="fw-bold float-end badge {{$pemesanan->status_bayar == 'pending' ? 'bg-danger' : 'bg-success'}}">{{$pemesanan->status_bayar}}</span></p>
-            <!-- <p>
-                <a href="{{url('customer/pemesanan/'.$pemesanan->id)}}" class="btn btn-sm btn-primary">Refresh</a>
-            </p> -->
+            <p>Status : <span class="fw-bold float-end badge {{$pemesanan->status_bayar == 'pending' ? 'bg-warning' : 'bg-success'}}">{{$pemesanan->status_bayar}}</span></p>
+            <p>
+                <a href="{{url('customer/cancel-pemesanan/'.$pemesanan->id)}}" class="btn btn-sm btn-danger">Batalkan Pesanan</a>
+            </p>
 
             <div class="card mt-3 bg-primary">
                 <div class="card-body">

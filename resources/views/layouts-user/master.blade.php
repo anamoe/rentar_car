@@ -27,19 +27,21 @@
   <link rel="stylesheet" href="{{asset('public/landingpage/css/flaticon.css')}}">
   <link rel="stylesheet" href="{{asset('public/landingpage/css/icomoon.css')}}">
   <link rel="stylesheet" href="{{asset('public/landingpage/css/style.css')}}">
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+
   <style>
     .nav-item {
       color: blue;
     }
   </style>
-@stack('css')
+  @stack('css')
 </head>
 
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="{{url('')}}"><span  style="color: #179bbd;">RAHMANA RENT - CAR</span></a>
+      <a class="navbar-brand" href="{{url('')}}"><span style="color: #179bbd;">RAHMANA RENT - CAR</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -156,17 +158,21 @@
   <script src="{{asset('public/landingpage/js/google-map.js')}}"></script>
   <script src="{{asset('public/landingpage/js/main.js')}}"></script>
   <script src="{{url('public/arfa/toastr')}}/toastr.min.js"></script>
-    <script>
+  <script>
     toastr.options.timeOut = 1500;
     toastr.options.showMethod = 'slideDown';
     toastr.options.hideMethod = 'slideUp';
     toastr.options.closeMethod = 'slideUp';
     @if(session()->has('success'))
-        toastr.success('{{session()->get("success")}}')
+    toastr.success('{{session()->get("success")}}')
     @elseif(session()->has('error'))
-        toastr.error('{{session()->get("error")}}')
+    toastr.error('{{session()->get("error")}}')
     @endif
-</script>
+  </script>
+  <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+  <script>
+    new DataTable('#myTable');
+  </script>
   @stack('js')
 
 </body>

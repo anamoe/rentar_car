@@ -88,6 +88,8 @@ Route::middleware(['role:customer'])->group(function () {
     Route::get('/detail-paket/{id}', [LandingPageController::class, 'detail_paket']);
     Route::post('create-transaksi-paket', [TransaksiPaketController::class, 'store']);
     Route::get('pemesanan/{id}', [TransaksiPaketController::class, 'pemesanan']);
+    Route::get('cancel-pemesanan/{id}', [TransaksiPaketController::class, 'cancel_pemesanan']);
+    Route::get('transaksi-paket', [TransaksiPaketController::class, 'index']);
     Route::get('transaksi-paket', [TransaksiPaketController::class, 'index']);
 
 

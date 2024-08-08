@@ -35,7 +35,12 @@
                         <td>{{$item->destinasi}}</td>
                         <td>{{$item->merk}}</td>
                         <td>{{$item->driver}}</td>
-                        <td>{{$item->status_bayar}}</td>
+                        @if($item->status_bayar=='cancel')
+                        <td class="btn-sm btn-danger">{{$item->status_bayar}}</td>
+                        @else
+                        <td class="btn-sm btn-success">{{$item->status_bayar}}</td>
+
+                        @endif
                         <td>{{$item->status_pengantaran}}</td>
                         <td>{{$item->pembayaran_dp}}</td>
                      
