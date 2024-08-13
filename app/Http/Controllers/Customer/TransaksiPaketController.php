@@ -100,7 +100,7 @@ class TransaksiPaketController extends Controller
 
         $id_transaksi =  TransaksiRental::create([
             'customer_id' => auth()->user()->id,
-            // 'paket_id'=>$request->paket_id,
+            'paket_id'=>$request->paket_id,
             'mobil_id' => $request->mobil_id,
             'pembayaran' => $request->pembayaran,
             'status_bayar' => 'pending',
