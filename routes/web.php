@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Customer\LandingPageController;
 use App\Http\Controllers\Customer\TransaksiPaketController;
 use App\Http\Controllers\Driver\DriverController;
+use App\Http\Controllers\Owner\OwnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,6 +71,8 @@ Route::middleware(['role:admin'])->group(function () {
 Route::middleware(['role:owner'])->group(function () {
 
     Route::prefix('owner')->group(function () {
+        Route::get('laporan-kerusakan', [OwnerController::class, 'list_laporan']);
+
     });
 });
 Route::middleware(['role:driver'])->group(function () {
@@ -78,6 +81,9 @@ Route::middleware(['role:driver'])->group(function () {
         Route::get('transaksi-paket', [DriverController::class, 'transaksi_rental']);
         Route::put('status-pengantaran/{id_transaksi}', [DriverController::class, 'selesai']);
         Route::get('laporan-kerusakan/{id}', [DriverController::class, 'create_laporan']);
+        Route::post('postlaporan-kerusakan', [DriverController::class, 'store_laporan']);
+        Route::get('laporan-kerusakan', [DriverController::class, 'list_laporan']);
+        
 
 
     });

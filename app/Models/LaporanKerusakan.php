@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class LaporanKerusakan extends Model
 {
     use HasFactory;
+    protected $guarded =[];
+
 }

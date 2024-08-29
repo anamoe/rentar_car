@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('laporan_kerusakans', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_laporan');
+            $table->string('mobil_id');
+            $table->string('kondisi');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

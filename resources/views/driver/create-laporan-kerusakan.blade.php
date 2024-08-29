@@ -10,13 +10,13 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{url('admin/laporan-kerusakan')}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('driver/postlaporan-kerusakan')}}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">
                     <label for="" class="form-label">Kondisi</label>
                     <input type="text" class="form-control @error('kondisi') is-invalid @enderror" name="kondisi">
-                    <input type="hidden" value="{{$id}}" name="id_mobil">
+                    <input type="hidden" value="{{$id}}" name="mobil_id">
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Keterangan</label>

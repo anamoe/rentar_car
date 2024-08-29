@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Driver;
 
 use App\Http\Controllers\Controller;
+use App\Models\LaporanKerusakan;
 use App\Models\Mobil;
 use App\Models\TransaksiRental;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 class DriverController extends Controller
 {
     //
@@ -50,4 +52,27 @@ class DriverController extends Controller
         $mobil = Mobil::where('id',$id)->first();
         return view('driver.create-laporan-kerusakan',compact('mobil','id'));
     }
+
+    public function store_laporan(Request $request){
+        $randomString = Str::random(4);
+        $orderid = Str::upper($randomString);
+
+        LaporanKerusakan::create([
+            'kode_laporan'=> 'KL'.date('Y-m-d').$orderid,
+            'mobil_id'=>$request->mobil_id,
+            'kondisi'=>$request->kondisi,
+            'keterangan'=>$request->keterangan,
+        ]);
+        session()->flash('success', 'Sukses Melaporkan');
+        return redirect('driver/laporan-kerusakan');
+    }
+
+    public function list_laporan()
+    {
+        $data = LaporanKerusakan::leftjoin('mobils', 'laporan_kerusakans.mobil_id', 'mobils.id')
+        ->select('mobils.*', 'laporan_kerusakans.*')
+        ->orderBy('laporan_kerusakans.id', 'desc')->get();
+        return view('driver.laporan_kerusakan',compact('data'));
+    }
+
 }
