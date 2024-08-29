@@ -80,6 +80,8 @@
 	<form action="{{url('customer/create-transaksi-paket')}}" method="post" class="p-5 contact-form" style="background-color:blue;">
 	@csrf
 			<label for="" style="font-weight:600;color:#fffff0">Data Paket</label>
+			<input type="hidden" class="form-control" name="paket_id" value="{{$paket->id}}" placeholder="">
+
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group">
@@ -102,13 +104,13 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="">Mulai Tanggal</label>
-						<input type="date" class="form-control" name="tanggal_penjemputan" placeholder="">
+						<input type="date" class="form-control" name="tanggal_penjemputan" placeholder="" required>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="">Jam Penjemputan</label>
-						<input type="time" class="form-control" name="jam_penjemputan" placeholder="">
+						<input type="time" class="form-control" name="jam_penjemputan" placeholder="" required>
 					</div>
 				</div>
 			</div>
@@ -116,7 +118,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="">Alamat Penjemputan</label>
-						<input type="text" class="form-control" name="alamat_penjemputan" placeholder="">
+						<input type="text" class="form-control" name="alamat_penjemputan" placeholder="" required>
 					</div>
 				</div>
 				<div class="col-sm-6">

@@ -20,6 +20,16 @@ class LandingPageController extends Controller
       
         return view('welcome',compact('mobil','paket'));
     }
+    public function paketwisata(){
+        $paket =PaketRental::orderBy('id','desc')->get();      
+        return view('paket-wisata',compact('paket'));
+    }
+    public function mobil(){
+        $mobil =Mobil::where('status_mobil','free')->orderBy('id','desc')->get();
+      
+        return view('paket-mobil',compact('mobil'));
+    }
+    
 
     public function detail_mobil($id){
         $customer =Customer::join('users','customers.user_id','users.id')->where('users.id',auth()->user()->id)->first();

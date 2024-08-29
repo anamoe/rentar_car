@@ -8,7 +8,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Customer\LandingPageController;
 use App\Http\Controllers\Customer\TransaksiPaketController;
 use App\Http\Controllers\Driver\DriverController;
-use App\Models\PaketRental;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +33,8 @@ Route::get('/about', function () {
 });
 
 Route::get('/', [LandingPageController::class, 'landingpage']);
+Route::get('/paket-wisata', [LandingPageController::class, 'paketwisata']);
+Route::get('/paket-mobil', [LandingPageController::class, 'mobil']);
 Route::get('/landingpage-profil', [LandingPageController::class, 'index_profil']);
 Route::get('/tentangkami', [LandingPageController::class, 'tentangkami']);
 Route::get('/logout', [AuthController::class, 'logout']);

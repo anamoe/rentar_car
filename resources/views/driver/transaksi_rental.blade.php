@@ -22,7 +22,6 @@
                         <th>Driver</th>
                         <th>Status Bayar</th>
                         <th>Status Pengantaran</th>
-                        <th>Harga DP 50%</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -34,11 +33,10 @@
                         <td>{{$item->nama_paket}}</td>
                         <td>{{$item->jenis_paket}}</td>
                         <td>{{$item->destinasi}}</td>
-                        <td>{{$item->merk}}</td>
-                        <td>{{$item->driver}}</td>
+                        <td>{{$item->merk}} - {{$item->model}}</td>
+                        <td>{{$item->nama_driver}}</td>
                         <td>{{$item->status_bayar}}</td>
                         <td>{{$item->status_pengantaran}}</td>
-                        <td>{{$item->pembayaran_dp}}</td>
                         <td>
 
                             <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{$item->id}}">

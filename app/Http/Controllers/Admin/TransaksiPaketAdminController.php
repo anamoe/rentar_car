@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Mobil;
+use App\Models\PaketRental;
 use App\Models\TransaksiRental;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -27,14 +29,23 @@ class TransaksiPaketAdminController extends Controller
 
     public function pilih_driver(Request $request,$id_transaksi){
 
-        $cekemail= User::where('id',$request->driver_id)->where('role','driver')->first();
-        $cekemail->update([
-            'status_driver'=>'book'
-        ]);
+      
         // return $cekemail;
-        TransaksiRental::where('id',$id_transaksi)->update([
+       $trans= TransaksiRental::where('id',$id_transaksi)->first();
+       $paket= PaketRental::where('id',$trans->paket_id)->first();
+       $mobil= Mobil::where('id',$trans->mobil_id)->first();
+
+        $trans->update([
             'driver_id'=>$request->driver_id
         ]);
+        $cekemail= User::where('id',$request->driver_id)->where('role','driver')->orderBy('id','desc')->first();
+        $cekemail->update([
+            'status_driver'=>$request->status
+        ]);
+
+            //   return $cekemail;
+
+
 
         if($cekemail){
             $email= $cekemail->email;
@@ -45,7 +56,12 @@ class TransaksiPaketAdminController extends Controller
             $name = $cekemail->name;
             $data = [
                 'name' => $name,
-                'body' => "Kepada Driver : $name. Ada Orderan. Silahkan cek diwebsite ",
+                'body' => "Kepada Driver : $name. Ada Orderan. Silahkan cek diwebsite",
+                'kp' => $trans->kode_pembayaran,
+                'kt' => $trans->kode_transaksi,
+                'np' => $paket->nama_paket,
+                'd' => $paket->destinasi,
+                'mobil' => $mobil->merk,
                 'link' => "$link"
             ];
      

@@ -49,7 +49,16 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto" style="">
           <li class="nav-item active"><a href="{{url('')}}" class="nav-link">Home</a></li>
-          <li class="nav-item active"><a href="{{url('')}}" class="nav-link">Order</a></li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Order
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ url('paket-wisata') }}">Order Paket Wisata</a>
+              <a class="dropdown-item" href="{{ url('paket-mobil') }}">Order Mobil</a>
+            </div>
+          </li>
+
           <li class="nav-item active"><a href="{{url('about')}}" class="nav-link">About</a></li>
           <li class="nav-item active"><a href="{{url('term-condition')}}" class="nav-link">Term & Condition</a></li>
           <li class="nav-item active"><a href="{{url('contact')}}" class="nav-link">Contact</a></li>

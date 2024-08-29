@@ -15,12 +15,13 @@ class DriverController extends Controller
     {
         //
 
-        $data = TransaksiRental::join('mobils', 'transaksi_rentals.mobil_id', 'mobils.id')
+        $data = TransaksiRental::leftjoin('mobils', 'transaksi_rentals.mobil_id', 'mobils.id')
             ->leftjoin('users as driver', 'transaksi_rentals.driver_id', 'driver.id')
             ->join('users as customer', 'transaksi_rentals.customer_id', 'customer.id')
             ->leftjoin('paket_rentals', 'transaksi_rentals.paket_id', 'paket_rentals.id')
-            ->select('driver.name as nama_driver', 'customer.name as nama_customer', 'paket_rentals.*', 'transaksi_rentals.*')
+            ->select('driver.name as nama_driver', 'mobils.*','customer.name as nama_customer', 'paket_rentals.*', 'transaksi_rentals.*')
             ->where('transaksi_rentals.driver_id', auth()->user()->id)->where('status_bayar', 'terbayar')->get();
+            // return $data;
         return view('driver.transaksi_rental', compact('data'));
     }
 
@@ -47,6 +48,6 @@ class DriverController extends Controller
     public function create_laporan($id)
     {
         $mobil = Mobil::where('id',$id)->first();
-        return view('driver.create-laporan-kerusakan',compact('mobil'));
+        return view('driver.create-laporan-kerusakan',compact('mobil','id'));
     }
 }

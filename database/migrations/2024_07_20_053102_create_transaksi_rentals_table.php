@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('metode_pembayaran')->nullable();
             $table->string('status_bayar');
             $table->string('status_pengantaran');
-            $table->string('pembayaran_dp');
-            $table->string('pembayaran_sisa')->nullable();
+            $table->string('pembayaran');
+            // $table->string('pembayaran_sisa')->nullable();
             $table->string('alamat_penjemputan');
             $table->string('tanggal_penjemputan');
             $table->string('jam_penjemputan');

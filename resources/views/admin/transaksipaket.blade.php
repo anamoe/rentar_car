@@ -22,7 +22,6 @@
                         <th>Driver</th>
                         <th>Status Bayar</th>
                         <th>Status Pengantaran</th>
-                        <th>Harga DP 50%</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -35,10 +34,9 @@
                         <td>{{$item->jenis_paket}}</td>
                         <td>{{$item->destinasi}}</td>
                         <td>{{$item->merk}}</td>
-                        <td>{{$item->driver}}</td>
+                        <td>{{$item->nama_driver}}</td>
                         <td>{{$item->status_bayar}}</td>
                         <td>{{$item->status_pengantaran}}</td>
-                        <td>{{$item->pembayaran_dp}}</td>
                         <td>
 
                             <!-- <a href="{{url('admin/paketrental/'.$item->id.'/caridriver')}}" class="btn btn-sm btn-primary">Cari Driver</a> -->
@@ -66,6 +64,7 @@
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                                                 @endforeach
                                             </select>
+                                            <input type="hidden" name="status" value="book">
 
                                         </div>
                                         <div class="modal-footer">
