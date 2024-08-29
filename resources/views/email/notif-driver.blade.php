@@ -42,7 +42,8 @@
 
 
     <h3 style="text-align:center;"><a href="#">RAHMANA RENTAL-CAR</a></h3>
-
+    <p style="color:#00000;padding:3px; font-size: 14px;">
+    {{$body}}<br>
 
     <table>
         <thead>
@@ -65,8 +66,7 @@
         </tbody>
     </table>
 
-    <p style="color:#00000;padding:3px; font-size: 14px;">
-        {{$body}}<br>
+    
 
     <p style="color:#00000; text-align:center;"> Klik link dibawah untuk lanjut ke sistem website<br>
         <a style="background-color: #e6a91c;
