@@ -51,6 +51,11 @@
                     <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" accept="image/*">
                 </div>
 
+                <div class="form-group">
+                    <label for="" class="form-label">Deskripsi (Jika ada)</label>
+                    <textarea type="text" class="form-control" name="deskripsi"></textarea>
+                </div>
+
 
                 <button type="submit" class="btn btn-primary float-end mt-3">Tambah</button>
 

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('destinasi');
             $table->string('harga');
             $table->string('foto');
+            $table->string('deskripsi')->nullable();
             $table->timestamps();
         });
         PaketRental::create([

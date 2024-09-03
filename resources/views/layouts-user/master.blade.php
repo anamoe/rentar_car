@@ -115,7 +115,7 @@
               <li><a href="#" class="py-2 d-block">Order</a></li>
               <li><a href="#" class="py-2 d-block">About</a></li>
               <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
-              <li><a href="#" class="py-2 d-block">Contact/a></li>
+              <li><a href="#" class="py-2 d-block">Contact</a></li>
             </ul>
           </div>
         </div>

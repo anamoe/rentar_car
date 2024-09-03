@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('biaya_driver');
             $table->string('biaya_total');
             $table->enum('status_mobil', ['free', 'book'])->default('free');
+            $table->string('deskripsi')->nullable();
             $table->timestamps();
         });
 

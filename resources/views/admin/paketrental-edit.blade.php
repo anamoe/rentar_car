@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header bg-primary">
-        <h6 class="mb-0 text-white">Edit  Mobil
+        <h6 class="mb-0 text-white">Edit Paket
             <a href="{{url('admin/paketrental')}}" class="btn btn-sm float-end btn-light">Kembali</a>
         </h6>
     </div>
@@ -30,10 +30,13 @@
                     <input type="number" class="form-control @error('harga') is-invalid @enderror" name="harga" value="{{$data->harga}}">
                 </div>
                 <div class="form-group">
-                <label for="" class="form-label">Foto Paket</label>
-                <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" accept="image/*">
-            </div>
-
+                    <label for="" class="form-label">Foto Paket</label>
+                    <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Deskripsi (Jika ada)</label>
+                    <textarea type="text" class="form-control" name="deskripsi">{{$data->deskripsi}}</textarea>
+                </div>
 
                 <button type="submit" class="btn btn-primary float-end mt-3">Update</button>
 

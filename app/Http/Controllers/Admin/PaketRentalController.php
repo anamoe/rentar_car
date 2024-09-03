@@ -43,6 +43,7 @@ class PaketRentalController extends Controller
             $file->move($tujuan_upload, $namaFile);
             $data['foto'] = $namaFile;
         // }
+        $data['deskripsi'] = $request->deskripsi;
 
         PaketRental::create($data);
         return redirect('admin/paketrental')
@@ -83,6 +84,8 @@ class PaketRentalController extends Controller
             'destinasi'=>'required',
             'harga'=>'required',
         ]);
+        $data['deskripsi'] = $request->deskripsi;
+
         if($request->hasFile('foto')){
             $tujuan_upload = public_path('PaketRental');
             $file = $request->file('foto');

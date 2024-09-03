@@ -48,6 +48,8 @@ class MobilController extends Controller
             $file->move($tujuan_upload, $namaFile);
             $data['foto'] = $namaFile;
         // }
+        $data['deskripsi'] = $request->deskripsi;
+
 
         Mobil::create($data);
         return redirect('admin/mobil')
@@ -82,9 +84,9 @@ class MobilController extends Controller
     {
         //
 
+
         $data = $request->validate([
     
-            'mobil'=>'required',
             'merk'=>'required',
             'tahun'=>'required',
             'owner_id'=>'required',
@@ -100,6 +102,8 @@ class MobilController extends Controller
             $file->move($tujuan_upload, $namaFile);
             $data['foto'] = $namaFile;
         }
+        $data['deskripsi'] = $request->deskripsi;
+
 
         Mobil::findOrFail($id)->update($data);
         return redirect('admin/mobil')

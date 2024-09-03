@@ -21,13 +21,16 @@
 						<ul class="nav nav-pills mb-1" id="pills-tab" role="tablist">
 
 							<li class="nav-item">
-								<a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true" style="font-size: 30px;">Fitur</a>
+								<a class="nav-link active" id="pills-description-tab" data-toggle="pill"
+								 href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true" 
+								 style="font-size: 30px;">Deskripsi</a>
 							</li>
 
 						</ul>
 					</div>
+					<li class="check"><span class=""></span>{{$mobil->deskripsi}}</li>
 
-					<div class="tab-content" id="pills-tabContent">
+					<!-- <div class="tab-content" id="pills-tabContent">
 						<div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
 							<div class="row">
 								<div class="col-md-4">
@@ -60,7 +63,7 @@
 							</div>
 						</div>
 
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
