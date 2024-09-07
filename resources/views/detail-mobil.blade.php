@@ -169,7 +169,7 @@
     $('#tanggal_penjemputan').on('change', function() {
         var tanggal = $(this).val();
         $.ajax({
-            url: '/rentalcar/cek-tanggal',
+            url: '{{ url("/cek-tanggal") }}',
             type: 'GET',
             data: { tanggal: tanggal },
             success: function(response) {
