@@ -149,7 +149,7 @@
                     <div class="text">
                         <center>
                             <h2 class="mb-0"><a href="#">{{$v->merk}} - {{$v->model}} - {{$v->tahun}}</a></h2>
-                            <a href="{{url('customer/detail-mobil',$v->id)}}" class="btn btn-primary">Book now</a>
+                            <a href="{{url('customer/detail-mobil',$v->id)}}" class="btn btn-primary">Booking</a>
                         </center>
                     </div>
                 </div>

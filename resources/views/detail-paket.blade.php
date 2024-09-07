@@ -88,13 +88,13 @@
 			<input type="hidden" class="form-control" name="paket_id" value="{{$paket->id}}" placeholder="">
 
 			<div class="row">
-				<div class="col-sm-6">
+				<!-- <div class="col-sm-6">
 					<div class="form-group">
 						<label for="">Jumlah Pack</label>
 						<input type="number" class="form-control" name="pack" placeholder="" value="1">
 					</div>
-				</div>
-				<div class="col-sm-6">
+				</div> -->
+				<div class="col-sm-12">
 					<div class="form-group">
 						<label for="">Mobil</label>
 						<select name="mobil_id" class="form-control">
@@ -109,7 +109,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="">Mulai Tanggal</label>
-						<input type="date" class="form-control" name="tanggal_penjemputan" placeholder="" required>
+						<input type="date" class="form-control" id="tanggal_penjemputan"  name="tanggal_penjemputan" placeholder="" required>
 					</div>
 				</div>
 				<div class="col-sm-6">
@@ -179,3 +179,24 @@
 	</div>
 </div>
 @endsection
+@push('js')
+<script>
+	$(document).ready(function() {
+    $('#tanggal_penjemputan').on('change', function() {
+        var tanggal = $(this).val();
+        $.ajax({
+            url: '/rentalcar/cek-tanggal',
+            type: 'GET',
+            data: { tanggal: tanggal },
+            success: function(response) {
+                if(response.booked) {
+                    alert('Maaf, tanggal tersebut sudah dibooking.');
+                    $('#tanggal_penjemputan').val(''); // reset tanggal jika sudah dibooking
+                }
+            }
+        });
+    });
+});
+
+</script>
+@endpush

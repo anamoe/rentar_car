@@ -32,7 +32,7 @@ Route::get('/term-condition', function () {
 Route::get('/about', function () {
     return view('about');
 });
-
+Route::get('/cek-tanggal', [TransaksiPaketController::class, 'cekTanggal']);
 Route::get('/', [LandingPageController::class, 'landingpage']);
 Route::get('/paket-wisata', [LandingPageController::class, 'paketwisata']);
 Route::get('/paket-mobil', [LandingPageController::class, 'mobil']);

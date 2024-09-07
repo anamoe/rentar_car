@@ -234,4 +234,10 @@ class TransaksiPaketController extends Controller
             ]);
         }
     }
+
+    public function cekTanggal(Request $request)
+{
+    $isBooked = TransaksiRental::where('tanggal_penjemputan', $request->tanggal)->exists();
+    return response()->json(['booked' => $isBooked]);
+}
 }
