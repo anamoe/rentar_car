@@ -4,7 +4,6 @@
 <div class="card">
     <div class="card-header bg-primary">
         <h6 class="mb-0 text-white">Orderan Paket Rental Driver
-            <a href="{{url('admin/transaksipaketrental/create')}}" class="btn btn-sm float-end btn-light">Add</a>
         </h6>
     </div>
     <div class="card-body">
@@ -79,7 +78,6 @@
                         <td class="text-center"></td>
                         <td class="text-center"></td>
                         <td class="text-center">KOSONG</td>
-                        <td class="text-center"></td>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
                         <td class="text-center"></td>

@@ -30,6 +30,11 @@
                     <input type="number" class="form-control @error('harga') is-invalid @enderror" name="harga" value="{{$data->harga}}">
                 </div>
                 <div class="form-group">
+                    <label for="" class="form-label">Biaya Fasilitas</label>
+                    <input type="number" class="form-control @error('biaya_fasilitas') is-invalid @enderror" 
+                    name="biaya_fasilitas" value="{{$data->biaya_fasilitas}}">
+                </div>
+                <div class="form-group">
                     <label for="" class="form-label">Foto Paket</label>
                     <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" accept="image/*">
                 </div>

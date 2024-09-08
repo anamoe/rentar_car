@@ -34,6 +34,7 @@ class PaketRentalController extends Controller
             'jenis_paket'=>'required',
             'destinasi'=>'required',
             'harga'=>'required',
+            'biaya_fasilitas'=>'required',
         ]);
         
         // if($request->hasFile('foto')){
@@ -83,6 +84,8 @@ class PaketRentalController extends Controller
             'jenis_paket'=>'required',
             'destinasi'=>'required',
             'harga'=>'required',
+            'biaya_fasilitas'=>'required',
+
         ]);
         $data['deskripsi'] = $request->deskripsi;
 

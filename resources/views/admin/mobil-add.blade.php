@@ -35,8 +35,13 @@
                     <input type="number" class="form-control @error('tahun') is-invalid @enderror" name="tahun">
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">Ongkos bbm</label>
-                    <input type="number" class="form-control @error('biaya_bbm') is-invalid @enderror" name="biaya_bbm">
+                    <label for="" class="form-label">Biaya Admin</label>
+                    <input type="number" class="form-control @error('biaya_admin') is-invalid @enderror" name="biaya_bbm">
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Biaya Sewa</label>
+                    <input type="number" class="form-control @error('biaya_sewa') is-invalid @enderror"
+                     name="biaya_sewa">
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Ongkos driver</label>

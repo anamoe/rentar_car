@@ -42,14 +42,32 @@
             </a>
         </li>
 
-        <li class="menu-item {{request()->is('admin/transaksi-paket*') ? 'active' : ''}}">
-            <a href="{{url('admin/transaksi-paket')}}" class="menu-link">
+        <li class="menu-item {{request()->is('admin/transaksi-paket/index') ? 'active' : ''}}">
+            <a href="{{url('admin/transaksi-paket/index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Transaksi Paket Rental</div>
             </a>
         </li>
+        <li class="menu-item {{request()->is('admin/transaksi-paket/selesai') ? 'active' : ''}}">
+            <a href="{{url('admin/transaksi-paket/selesai')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Riwayat Transaksi Paket Rental</div>
+            </a>
+        </li>
+        <li class="menu-item {{request()->is('admin/laporan_pendapatan_owner') ? 'active' : ''}}">
+            <a href="{{url('admin/laporan_pendapatan_owner')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Laporan Pendapatan Owner</div>
+            </a>
+        </li>
+        <li class="menu-item {{request()->is('admin/laporan-kerusakan') ? 'active' : ''}}">
+            <a href="{{url('admin/laporan-kerusakan')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Laporan Kerusakan</div>
+            </a>
+        </li>
         @elseif(auth()->user()->role=='driver')
-        <li class="menu-item {{request()->is('admin/transaksi-paket*') ? 'active' : ''}}">
+        <li class="menu-item {{request()->is('driver/laporan-kerusakan') ? 'active' : ''}}">
             <a href="{{url('driver/laporan-kerusakan')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Laporan Kerusakan</div>
@@ -62,11 +80,17 @@
             </a>
         </li>
         @elseif(auth()->user()->role=='owner')
-        <li class="menu-item {{request()->is('admin/transaksi-paket*') ? 'active' : ''}}">
+        <li class="menu-item {{request()->is('owner/laporan-kerusakan') ? 'active' : ''}}">
             <a href="{{url('owner/laporan-kerusakan')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Riwayat Laporan Kerusakan</div>
 
+            </a>
+        </li>
+        <li class="menu-item {{request()->is('owner/laporan_pendapatan_owner') ? 'active' : ''}}">
+            <a href="{{url('owner/laporan_pendapatan_owner')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Laporan Pendapatan Owner</div>
             </a>
         </li>
         @endif

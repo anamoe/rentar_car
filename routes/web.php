@@ -55,14 +55,20 @@ Route::middleware(['role:admin'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::resource('mobil', MobilController::class);
         Route::get('mobil/{id}/delete', [MobilController::class, 'destroy']);
+        Route::get('laporan_pendapatan_owner', [MobilController::class, 'laporan_pendapatan_owner']);
+        Route::get('laporan-kerusakan', [MobilController::class, 'list_laporan']);
+        
+        
 
         Route::resource('paketrental', PaketRentalController::class);
         Route::get('paketrental/{id}/delete', [PaketRentalController::class, 'destroy']);
 
         Route::resource('akun', AkunController::class);
         Route::get('akun/{id}/delete', [AkunController::class, 'destroy']);
-        Route::get('transaksi-paket', [TransaksiPaketAdminController::class, 'index']);
+        Route::get('transaksi-paket/index', [TransaksiPaketAdminController::class, 'index']);
+        Route::get('transaksi-paket/selesai', [TransaksiPaketAdminController::class, 'index_selesai']);
         Route::put('cari-driver/{id_transaksi}', [TransaksiPaketAdminController::class, 'pilih_driver']);
+        Route::get('notifkedua/{id_transaksi}', [TransaksiPaketAdminController::class, 'notifkedua']);
         
 
     });
@@ -72,6 +78,8 @@ Route::middleware(['role:owner'])->group(function () {
 
     Route::prefix('owner')->group(function () {
         Route::get('laporan-kerusakan', [OwnerController::class, 'list_laporan']);
+        Route::get('laporan_pendapatan_owner', [OwnerController::class, 'laporan_pendapatan_owner']);
+
 
     });
 });

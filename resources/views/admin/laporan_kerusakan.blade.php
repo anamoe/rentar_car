@@ -3,8 +3,7 @@
 
 <div class="card">
     <div class="card-header bg-primary">
-        <h6 class="mb-0 text-white">Mobil
-            <a href="{{url('admin/mobil/create')}}" class="btn btn-sm float-end btn-light">Add</a>
+        <h6 class="mb-0 text-white">Laporan Kerusakan
         </h6>
     </div>
     <div class="card-body">
@@ -14,38 +13,34 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Merk</th>
-                        <th>Model</th>
-                        <th>Tahun</th>
-                        <th>Foto Mobil</th>
-                        <th>Aksi</th>
+                        <th>Kode Laporan</th>
+                        <th>Mobil</th>
+                        <th>Kondisi</th>
+                        <th>Keterangan</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($data as $item)
                     <tr>
                         <td>{{$loop->iteration}}</td>
-                        <td>{{$item->merk}}</td>
-                        <td>{{$item->model}}</td>
-                        <td>{{$item->tahun}}</td>
-                        <td>
-                            <img src="{{asset('public/mobil/'.$item->foto)}}" width="50" alt="">
-                        </td>
-                        <td>
-                            <a href="{{url('admin/mobil/'.$item->id.'/edit')}}" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="{{url('admin/mobil/'.$item->id.'/delete')}}" class="btn btn-sm btn-danger">Delete</a>
-                        </td>
+                        <td>{{$item->kode_laporan}}</td>
+                        <td>{{$item->merk}} - {{$item->model}}</td>
+                        <td>{{$item->kondisi}}</td>
+                        <td>{{$item->keterangan}}</td>
                     </tr>
+                   
                     @empty
                     <tr>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
+
                         <td class="text-center">KOSONG</td>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
-                        <td class="text-center"></td>
+
 
                     </tr>
+
                     @endforelse
                 </tbody>
             </table>

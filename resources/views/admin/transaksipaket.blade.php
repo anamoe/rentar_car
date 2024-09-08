@@ -4,7 +4,6 @@
 <div class="card">
     <div class="card-header bg-primary">
         <h6 class="mb-0 text-white">Transaksi Paket Rental
-            <a href="{{url('admin/transaksipaketrental/create')}}" class="btn btn-sm float-end btn-light">Add</a>
         </h6>
     </div>
     <div class="card-body">
@@ -38,12 +37,14 @@
                         <td>{{$item->status_bayar}}</td>
                         <td>{{$item->status_pengantaran}}</td>
                         <td>
-
-                            <!-- <a href="{{url('admin/paketrental/'.$item->id.'/caridriver')}}" class="btn btn-sm btn-primary">Cari Driver</a> -->
                             <a href="{{url('admin/paketrental/'.$item->id.'/delete')}}" class="btn btn-sm btn-danger mb-1">Delete</a>
-                            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{$item->id}}">
+                            <button type="button" class="btn btn-sm btn-primary mb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{$item->id}}">
                                 Cari Driver
                             </button>
+                            
+                            <a href="{{url('admin/notifkedua/'.$item->id)}}" 
+                            class="btn btn-sm btn-primary">Notif Hari H</a>
+
                         </td>
                     </tr>
                     <div class="modal fade" id="staticBackdrop{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

@@ -26,10 +26,10 @@
 						<ul class="nav nav-pills mb-1" id="pills-tab" role="tablist">
 
 							<li class="nav-item">
-								<a class="nav-link active" id="pills-description-tab" 
-								data-toggle="pill" href="#pills-description" role="tab"
-								 aria-controls="pills-description" aria-expanded="true" 
-								 style="font-size: 30px;">Deskripsi</a>
+								<a class="nav-link active" id="pills-description-tab"
+									data-toggle="pill" href="#pills-description" role="tab"
+									aria-controls="pills-description" aria-expanded="true"
+									style="font-size: 30px;">Deskripsi</a>
 							</li>
 
 						</ul>
@@ -82,8 +82,8 @@
 </center>
 <div class="row m-4 justify-content-center" style="margin: 30px;">
 	<div class="col-md-12 block-9 mb-md-5">
-	<form action="{{url('customer/create-transaksi-paket')}}" method="post" class="p-5 contact-form" style="background-color:blue;">
-	@csrf
+		<form action="{{url('customer/create-transaksi-paket')}}" method="post" class="p-5 contact-form" style="background-color:blue;">
+			@csrf
 			<label for="" style="font-weight:600;color:#fffff0">Data Paket</label>
 			<input type="hidden" class="form-control" name="paket_id" value="{{$paket->id}}" placeholder="">
 
@@ -109,7 +109,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="">Mulai Tanggal</label>
-						<input type="date" class="form-control" id="tanggal_penjemputan"  name="tanggal_penjemputan" placeholder="" required>
+						<input type="date" class="form-control" id="tanggal_penjemputan" name="tanggal_penjemputan" placeholder="" required>
 					</div>
 				</div>
 				<div class="col-sm-6">
@@ -122,9 +122,16 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label for="">Alamat Penjemputan</label>
-						<input type="text" class="form-control" name="alamat_penjemputan" placeholder="" required>
+						<label for="alamat_penjemputan">Alamat Penjemputan</label>
+						<select class="form-control" name="alamat_penjemputan" required>
+							<option value="" disabled selected>Pilih Alamat Penjemputan</option>
+							<option value="Banyuwangi">Banyuwangi</option>
+							<option value="Situbondo">Situbondo</option>
+							<option value="Bondowoso">Bondowoso</option>
+							<option value="Jember">Jember</option>
+						</select>
 					</div>
+
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
@@ -182,21 +189,22 @@
 @push('js')
 <script>
 	$(document).ready(function() {
-    $('#tanggal_penjemputan').on('change', function() {
-        var tanggal = $(this).val();
-        $.ajax({
-            url: '{{ url("/cek-tanggal") }}',
-            type: 'GET',
-            data: { tanggal: tanggal },
-            success: function(response) {
-                if(response.booked) {
-                    alert('Maaf, tanggal tersebut sudah dibooking.');
-                    $('#tanggal_penjemputan').val(''); // reset tanggal jika sudah dibooking
-                }
-            }
-        });
-    });
-});
-
+		$('#tanggal_penjemputan').on('change', function() {
+			var tanggal = $(this).val();
+			$.ajax({
+				url: '{{ url("/cek-tanggal") }}',
+				type: 'GET',
+				data: {
+					tanggal: tanggal
+				},
+				success: function(response) {
+					if (response.booked) {
+						alert('Maaf, tanggal tersebut sudah dibooking.');
+						$('#tanggal_penjemputan').val(''); // reset tanggal jika sudah dibooking
+					}
+				}
+			});
+		});
+	});
 </script>
 @endpush

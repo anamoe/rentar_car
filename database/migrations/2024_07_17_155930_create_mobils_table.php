@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('model');
             $table->string('tahun');
             $table->string('foto');
-            $table->string('biaya_bbm');
+            $table->string('biaya_admin');
             $table->string('biaya_driver');
             $table->string('biaya_total');
             $table->enum('status_mobil', ['free', 'book'])->default('free');
@@ -33,10 +33,11 @@ return new class extends Migration
             'model'=>'ak47',
             'tahun'=>'2020',
             'foto'=>'mobil.jpg',
-            'biaya_bbm'=>'100000',
+            'biaya_admin'=>'100000',
             'biaya_driver'=>'50000',
             'biaya_total'=>'60000',
-            'status_mobil'=>'free'
+            'status_mobil'=>'free',
+            'deskripsi'=>'Mobil adalah kendaraan bermotor roda empat yang dirancang untuk transportasi pribadi atau komersial di jalan raya. Mobil umumnya didesain dengan fitur-fitur yang memberikan kenyamanan, efisiensi, dan keselamatan bagi penggunanya. Ada berbagai jenis mobil berdasarkan bentuk, ukuran, dan fungsinya, seperti sedan, SUV, hatchback, dan truk.'
         ]);
 
         Mobil::create([
@@ -45,10 +46,12 @@ return new class extends Migration
             'model'=>'Jazz',
             'tahun'=>'1998',
             'foto'=>'mobil2.jpg',
-            'biaya_bbm'=>'100000',
+            'biaya_admin'=>'100000',
             'biaya_driver'=>'50000',
             'biaya_total'=>'60000',
-            'status_mobil'=>'free'
+            'status_mobil'=>'free',
+            'deskripsi'=>'Mobil adalah kendaraan bermotor roda empat yang dirancang untuk transportasi pribadi atau komersial di jalan raya. Mobil umumnya didesain dengan fitur-fitur yang memberikan kenyamanan, efisiensi, dan keselamatan bagi penggunanya. Ada berbagai jenis mobil berdasarkan bentuk, ukuran, dan fungsinya, seperti sedan, SUV, hatchback, dan truk.'
+
         ]);
         Mobil::create([
             'owner_id'=>2,
@@ -56,10 +59,12 @@ return new class extends Migration
             'model'=>'T121',
             'tahun'=>'2024',
             'foto'=>'mobil3.jpg',
-            'biaya_bbm'=>'100000',
+            'biaya_admin'=>'100000',
             'biaya_driver'=>'50000',
             'biaya_total'=>'200000',
-            'status_mobil'=>'free'
+            'status_mobil'=>'free',
+            'deskripsi'=>'Mobil adalah kendaraan bermotor roda empat yang dirancang untuk transportasi pribadi atau komersial di jalan raya. Mobil umumnya didesain dengan fitur-fitur yang memberikan kenyamanan, efisiensi, dan keselamatan bagi penggunanya. Ada berbagai jenis mobil berdasarkan bentuk, ukuran, dan fungsinya, seperti sedan, SUV, hatchback, dan truk.'
+
         ]);
         Mobil::create([
             'owner_id'=>2,
@@ -67,10 +72,12 @@ return new class extends Migration
             'model'=>'wow',
             'tahun'=>'2023',
             'foto'=>'mobil4.jpg',
-            'biaya_bbm'=>'200000',
+            'biaya_admin'=>'200000',
             'biaya_driver'=>'100000',
             'biaya_total'=>'300000',
-            'status_mobil'=>'free'
+            'status_mobil'=>'free',
+            'deskripsi'=>'Mobil adalah kendaraan bermotor roda empat yang dirancang untuk transportasi pribadi atau komersial di jalan raya. Mobil umumnya didesain dengan fitur-fitur yang memberikan kenyamanan, efisiensi, dan keselamatan bagi penggunanya. Ada berbagai jenis mobil berdasarkan bentuk, ukuran, dan fungsinya, seperti sedan, SUV, hatchback, dan truk.'
+
         ]);
     }
 

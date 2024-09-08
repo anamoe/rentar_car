@@ -3,8 +3,7 @@
 
 <div class="card">
     <div class="card-header bg-primary">
-        <h6 class="mb-0 text-white">Paket Rental
-            <a href="{{url('admin/paketrental/create')}}" class="btn btn-sm float-end btn-light">Add</a>
+        <h6 class="mb-0 text-white">Riwayat Transaksi Paket Rental
         </h6>
     </div>
     <div class="card-body">
@@ -14,32 +13,35 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Kode Pembayaran</th>
                         <th>Nama Paket</th>
                         <th>Jenis Paket</th>
                         <th>Destinasi</th>
-                        <th>Harga</th>
-                        <th>Foto</th>
-                        <th>Aksi</th>
+                        <th>Mobil</th>
+                        <th>Driver</th>
+                        <th>Status Bayar</th>
+                        <th>Status Pengantaran</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($data as $item)
                     <tr>
                         <td>{{$loop->iteration}}</td>
+                        <td>{{$item->kode_pembayaran}}</td>
                         <td>{{$item->nama_paket}}</td>
                         <td>{{$item->jenis_paket}}</td>
                         <td>{{$item->destinasi}}</td>
-                        <td>{{$item->harga}}</td>
-                        <td>
-                            <img src="{{asset('public/PaketRental/'.$item->foto)}}" width="50" alt="">
-                        </td>
-                        <td>
-                            <a href="{{url('admin/paketrental/'.$item->id.'/edit')}}" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="{{url('admin/paketrental/'.$item->id.'/delete')}}" class="btn btn-sm btn-danger">Delete</a>
-                        </td>
+                        <td>{{$item->merk}}</td>
+                        <td>{{$item->nama_driver}}</td>
+                        <td>{{$item->status_bayar}}</td>
+                        <td>{{$item->status_pengantaran}}</td>
+                    
                     </tr>
+                   
                     @empty
                     <tr>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
@@ -47,8 +49,8 @@
                         <td class="text-center"></td>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
-
                     </tr>
+
                     @endforelse
                 </tbody>
             </table>
