@@ -8,7 +8,6 @@ use App\Models\PaketRental;
 use App\Models\TransaksiRental;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class TransaksiPaketAdminController extends Controller
@@ -21,6 +20,7 @@ class TransaksiPaketAdminController extends Controller
             ->join('users as customer', 'transaksi_rentals.mobil_id', 'customer.id')
             ->leftjoin('paket_rentals', 'transaksi_rentals.paket_id', 'paket_rentals.id')
             ->select('driver.name as nama_driver', 'customer.name as nama_customer', 'mobils.*', 'paket_rentals.*', 'transaksi_rentals.*')
+            ->where('status_bayar','!=', 'terbayar')
             ->orderBy('transaksi_rentals.id', 'desc')->get();
         // return $data;
         $driver = User::where('role', 'driver')->where('status_driver', 'free')->get();
@@ -33,8 +33,8 @@ class TransaksiPaketAdminController extends Controller
             ->leftjoin('users as driver', 'transaksi_rentals.driver_id', 'driver.id')
             ->join('users as customer', 'transaksi_rentals.mobil_id', 'customer.id')
             ->leftjoin('paket_rentals', 'transaksi_rentals.paket_id', 'paket_rentals.id')
-            ->where('status_bayar', 'selesai')
             ->select('driver.name as nama_driver', 'customer.name as nama_customer', 'mobils.*', 'paket_rentals.*', 'transaksi_rentals.*')
+            ->where('status_bayar', 'terbayar')->where('status_pengantaran', 'selesai')
             ->orderBy('transaksi_rentals.id', 'desc')->get();
         // return $data;
         $driver = User::where('role', 'driver')->where('status_driver', 'free')->get();

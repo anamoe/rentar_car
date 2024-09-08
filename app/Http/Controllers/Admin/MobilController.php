@@ -137,6 +137,7 @@ class MobilController extends Controller
         $data = TransaksiRental::join('mobils', 'transaksi_rentals.mobil_id', 'mobils.id')
             ->join('users as owner', 'mobils.owner_id', 'owner.id')
             ->leftjoin('paket_rentals', 'transaksi_rentals.paket_id', 'paket_rentals.id')
+            ->where('status_bayar','terbayar')
             ->select('mobils.id', 'mobils.merk', 'mobils.model','owner.name', DB::raw('SUM(mobils.biaya_sewa) as total_pendapatan'))
             ->groupBy('mobils.id', 'mobils.merk','mobils.model','owner.name',)
             ->orderBy('total_pendapatan', 'desc')
